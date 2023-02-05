@@ -1,0 +1,83 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  cursor: none;
+}
+
+body {
+  font-family: "Crimson Pro", serif;
+  background-color: rgb(9, 30, 60);
+  color: rgb(251, 182, 2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.score,
+#headline {
+  font-size: 4em;
+  margin-bottom: 0.5em;
+}
+
+.board {
+  height: 600px;
+  width: 600px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 80px;
+}
+.hole {
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: inset 0 5px 0 2px #e49e00,
+    inset 0 20px 20px 15px rgba(5, 25, 102, 0.3), 0 0 5px rgba(1, 190, 150, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+.hole .mole {
+  width: 140%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  animation: infade 0.3s ease-in-out;
+}
+
+@keyframes infade {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.25;
+  }
+  80% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.cursor {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 10px solid rgb(251, 182, 2);
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.cursor.active {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 10px dashed rgb(231, 156, 0);
+  box-sizing: border-box;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+}
